@@ -213,7 +213,7 @@
                     <div class="col-sm-6">
                       <div class="form-group">
                         <label>Objektif Aktiviti</label>
-                        <textarea class="form-control" rows="3" placeholder="Enter ..."></textarea>
+                        <textarea class="summernote" rows="3" placeholder="Enter ..."></textarea>
                       </div>
                     </div>
                     <div class="col-sm-6">
@@ -225,7 +225,7 @@
                     <div class="col-sm-6">
                       <div class="form-group">
                         <label>Latar Belakang Program/Aktiviti</label>
-                        <textarea class="form-control" rows="3" placeholder="Enter ..."></textarea>
+                        <textarea class="summernote" rows="3" placeholder="Enter ..."></textarea>
                       </div>
                     </div>
                     <div class="col-sm-6">
