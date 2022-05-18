@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>PERMATA | Permohonan Baru</title>
 
+
   <!-- Select2 -->
   <link rel="stylesheet" href="../../plugins/select2/css/select2.min.css">
   <link rel="stylesheet" href="../../plugins/select2-bootstrap4-theme/select2-bootstrap4.min.css">
@@ -36,17 +37,6 @@
       <li class="nav-item d-none d-sm-inline-block">
         <a href="#" class="nav-link">Hubungi</a>
       </li>
-    </ul>
-
-    <!-- Right navbar links -->
-    <ul class="navbar-nav ml-auto">
-      <!-- Navbar Search -->
-
-      <!-- Messages Dropdown Menu -->
-      
-      <!-- Notifications Dropdown Menu -->
-      
-      
     </ul>
   </nav>
   <!-- /.navbar -->
@@ -102,24 +92,32 @@
                 </a>
               </li>
               <li class="nav-item">
-                <a href="../forms/advanced.html" class="nav-link">
+                <a href="../forms/proses.php" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Permohonan Diproses</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="../forms/editors.html" class="nav-link">
+                <a href="../forms/approved.php" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Permohonan Diluluskan</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="../forms/validation.html" class="nav-link">
+                <a href="../forms/rejected.php" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Permohonan Ditolak</p>
                 </a>
               </li>
             </ul>
+          </li>
+          <li class="nav-item">
+            <a href="../../info.php" class="nav-link">
+              <i class="nav-icon fas fa-info-circle"></i>
+              <p>
+                Info HEP
+              </p>
+            </a>
           </li>
           
         </ul>
@@ -136,7 +134,7 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1>General Form</h1>
+            <h1>Permohonan Baru</h1>
           </div>
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
@@ -186,14 +184,14 @@
                       <div class="form-group">
                         <label>Peringkat Aktiviti</label>
                         <select class="form-control select2bs4" style="width: 100%;">
-                          <option selected="selected">Antarabangsa</option>
+                          <option selected>Antarabangsa</option>
                           <option>Kebangsaan</option>
                           <option>Negeri</option>
                           <option>Daerah</option>
                           <option>Universiti</option>
                           <option>Kampus</option>
                           <option>Fakulti</option>
-                          <option>Kolej</option>
+                          <option selected="selected">Kolej</option>
                           <option>Persatuan/Kelab</option>
                         </select>
                       </div>
@@ -259,31 +257,31 @@
                     <div class="col-sm-6">
                       <div class="form-group">
                         <label>Nama Pengarah Projek</label>
-                        <input type="text" class="form-control" id="" placeholder="Enter ...">
+                        <input type="text" class="form-control" id="studentname" placeholder="Enter ...">
                       </div>
                     </div>
                     <div class="col-sm-6">
                       <div class="form-group">
                         <label>Email Pengarah Projek</label>
-                        <input type="text" class="form-control" placeholder="Enter ...">
+                        <input type="text" class="form-control" id="studentemailuitm" placeholder="Enter ...">
                       </div>
                     </div>
                     <div class="col-sm-6">
                       <div class="form-group">
                         <label>Jawatan</label>
-                        <input type="text" class="form-control" placeholder="Enter ...">
+                        <input type="text" class="form-control" id="position" placeholder="Enter ...">
                       </div>
                     </div>
                     <div class="col-sm-6">
                       <div class="form-group">
                         <label>No Telefon Bimbit</label>
-                        <input type="text" class="form-control" placeholder="Enter ...">
+                        <input type="text" class="form-control" id="" placeholder="Enter ...">
                       </div>
                     </div>
                     <div class="col-sm-6">
                       <div class="form-group">
                         <label>CGPA Semasa</label>
-                        <input type="text" class="form-control" placeholder="Enter ...">
+                        <input type="text" class="form-control" id="" placeholder="Enter ...">
                       </div>
                     </div>
                     <div class="col-sm-6">
@@ -325,7 +323,7 @@
             <!-- general form elements -->
             <div class="card card-primary">
               <div class="card-header">
-                <h3 class="card-title">Keterangan Aktiviti</h3>
+                <h3 class="card-title">Penyertaan (Bilangan Peserta)</h3>
               </div>
               <!-- /.card-header -->
               <div class="card-body">
@@ -408,7 +406,6 @@
               <form>
                 <div class="card-body">
                 <textarea class="summernote" id="summernote">
-                    Place <em>some</em> <u>text</u> <strong>here</strong>
                 </textarea>
                 </div>
               </form>
@@ -468,8 +465,6 @@
 <script src="../../dist/js/adminlte.min.js"></script>
 <!-- Tempusdominus Bootstrap 4 -->
 <script src="../../plugins/tempusdominus-bootstrap-4/js/tempusdominus-bootstrap-4.min.js"></script>
-<!-- AdminLTE for demo purposes -->
-<script src="../../dist/js/demo.js"></script>
 <!-- Summernote -->
 <script src="../../plugins/summernote/summernote-bs4.min.js"></script>
 <!-- Page specific script -->
