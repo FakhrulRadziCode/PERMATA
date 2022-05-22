@@ -8,8 +8,8 @@ $dbname = "permatadb";
 
 $conn = mysqli_connect($dbhost,$dbuser,$dbpass,$dbname);
 
-if(!isset($conn))
-    echo "connection is not ok";
-else
-    echo "hahaha connection is ok";
+// if(!isset($conn))
+//     echo "connection is not ok";
+// else
+//     echo "hahaha connection is ok";
 ?>
