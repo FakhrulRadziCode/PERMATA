@@ -190,7 +190,7 @@
                   <tr>
                     <td>1</td>
                     <td>69420</td>
-                    <td>Ts. Mohd Norafizal bin Abd Aziz </td>
+                    <td>Ts. Mohd Norafizal bin Abd Aziz</td>
                     <td>Developer</td>
                     <td>Developer</td>
                     <td><a href="#">Kemaskini</a></td>
