@@ -44,23 +44,22 @@
   <!-- Main Sidebar Container -->
   <aside class="main-sidebar sidebar-dark-primary elevation-4">
     <!-- Brand Logo -->
-    <a href="../../index3.html" class="brand-link">
+    <a href="../../index.php" class="brand-link">
       <img src="../../dist/img/AdminLTELogo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
-      <span class="brand-text font-weight-light">AdminLTE 3</span>
+      <span class="brand-text font-weight-light">PERMATA</span>
     </a>
 
     <!-- Sidebar -->
     <div class="sidebar">
-      <!-- Sidebar user (optional) -->
+      <!-- Sidebar user panel (optional) -->
       <div class="user-panel mt-3 pb-3 mb-3 d-flex">
         <div class="image">
           <img src="../../dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
         </div>
         <div class="info">
-          <a href="#" class="d-block">Alexander Pierce</a>
+          <a href="#" class="d-block">FAKHRUL RADZI BIN AHMAD</a>
         </div>
       </div>
-
 
       <!-- Sidebar Menu -->
       <nav class="mt-2">
@@ -72,7 +71,6 @@
               <i class="nav-icon fas fa-home"></i>
               <p>
                 Halaman Utama
-                <!-- <i class="right fas fa-angle-left"></i> -->
               </p>
             </a>
           </li>
@@ -86,13 +84,13 @@
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="../forms/general.php" class="nav-link">
+                <a href="general.php" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Permohonan Baru</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="../forms/proses.php" class="nav-link">
+                <a href="proses.php" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Permohonan Diproses</p>
                 </a>
@@ -104,7 +102,7 @@
                 </a>
               </li>
               <li class="nav-item">
-                <a href="../forms/rejected.php" class="nav-link">
+                <a href="rejected.php" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Permohonan Ditolak</p>
                 </a>
@@ -112,14 +110,29 @@
             </ul>
           </li>
           <li class="nav-item">
-            <a href="../../info.php" class="nav-link">
+            <a href="pages/table_user.php" class="nav-link">
+              <i class="nav-icon fas fa-list"></i>
+              <p>
+                Senarai Pengguna
+              </p>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="pages/admin_permohonan.php" class="nav-link">
+              <i class="nav-icon fas fa-folder"></i>
+              <p>
+                Permohonan Pelajar
+              </p>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="info.php" class="nav-link">
               <i class="nav-icon fas fa-info-circle"></i>
               <p>
                 Info HEP
               </p>
             </a>
           </li>
-          
         </ul>
       </nav>
       <!-- /.sidebar-menu -->
@@ -148,17 +161,20 @@
 
     <!-- Main content -->
     <section class="content">
+      <div class="container-fluid">
         <div class="row">
-            <div class="col-12" id="accordion">
-                <div class="card card-primary card-outline">
-                    <div id="collapseOne" class="collapse show" data-parent="#accordion">
-                        <div class="card-body">
-                            Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor.
-                        </div>
-                    </div>
-                </div>
+          <div class="col-sm-12">
+            <div class="card card-primary">
+              <div class="card-header">
+                <h3 class="card-title">Senarai Permohonan Diluluskan</h3>
+              </div>
+              <div class="card-body">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo amet sit recusandae dignissimos ratione vero magnam eaque tempore enim quasi.
+              </div>
             </div>
+          </div>
         </div>
+      </div>
     </section>
     <!-- /.content -->
   </div>
