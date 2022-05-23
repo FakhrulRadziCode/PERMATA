@@ -178,25 +178,25 @@
                       <!-- text input -->
                       <div class="form-group">
                         <label>Nama Aktiviti/Program <i>(Sila Gunakan Huruf Besar)</i></label>
-                        <input type="text" class="form-control" id="activity_no" placeholder="Enter ...">
+                        <input type="text" name="activity_no" class="form-control" id="activity_no" placeholder="Enter ...">
                       </div>
                     </div>
                     <div class="col-sm-6">
                       <div class="form-group">
                         <label>Nama Kelab/Persatuan <i>(Nama Penuh Kelab/Persatuan)</i></label>
-                        <input type="text" class="form-control" id="activity_name" placeholder="Enter ...">
+                        <input type="text" name="activity_name" class="form-control" id="activity_name" placeholder="Enter ...">
                       </div>
                     </div>
                     <div class="col-sm-6">
                       <div class="form-group">
                         <label>Kod Persatuan</label>
-                        <input type="text" class="form-control" id="organization_id" placeholder="Enter ...">
+                        <input type="text" name="organization_id" class="form-control" id="organization_id" placeholder="Enter ...">
                       </div>
                     </div>
                     <div class="col-sm-6">
                       <div class="form-group">
                         <label>Peringkat Aktiviti</label>
-                        <select class="form-control select2bs4" style="width: 100%;">
+                        <select class="form-control select2bs4" name="level_name" style="width: 100%;">
                           <option selected>Antarabangsa</option>
                           <option>Kebangsaan</option>
                           <option>Negeri</option>
@@ -212,7 +212,7 @@
                     <div class="col-sm-6">
                       <div class="form-group">
                         <label>Anjuran <i>(Nama kelab/persatuan yang menganjurkan program)</i></label>
-                        <input type="text" class="form-control" id="organizer_name" placeholder="Enter ...">
+                        <input type="text" name="" class="form-control" id="organizer_name" placeholder="Enter ...">
                       </div>
                     </div>
                     <div class="col-sm-6">
@@ -224,25 +224,25 @@
                     <div class="col-sm-6">
                       <div class="form-group">
                         <label>Objektif Aktiviti</label>
-                        <textarea class="summernote" rows="3" placeholder="Enter ..."></textarea>
+                        <textarea class="summernote" name="objective" rows="3" placeholder="Enter ..."></textarea>
                       </div>
                     </div>
                     <div class="col-sm-6">
                       <div class="form-group">
                         <label>Tujuan Program/Aktiviti</label>
-                        <textarea class="form-control" rows="3" placeholder="Enter ..."></textarea>
+                        <textarea class="form-control" name="purpose" rows="3" placeholder="Enter ..."></textarea>
                       </div>
                     </div>
                     <div class="col-sm-6">
                       <div class="form-group">
                         <label>Latar Belakang Program/Aktiviti</label>
-                        <textarea class="summernote" rows="3" placeholder="Enter ..."></textarea>
+                        <textarea class="summernote" name="activity_background" rows="3" placeholder="Enter ..."></textarea>
                       </div>
                     </div>
                     <div class="col-sm-6">
                       <div class="form-group">
                         <label>Kategori Aktiviti</label>
-                        <select class="select2" multiple="multiple" data-placeholder="Sila pilih yang berkenaan" style="width: 100%;">
+                        <select class="select2" multiple="multiple" name="category_id" data-placeholder="Sila pilih yang berkenaan" style="width: 100%;">
                           <option>Akademik/Ilmiah</option>
                           <option>Sukan/Rekreasi</option>
                           <option>Kerohanian</option>
@@ -270,49 +270,49 @@
                     <div class="col-sm-6">
                       <div class="form-group">
                         <label>Nama Pengarah Projek</label>
-                        <input type="text" class="form-control" id="studentname" placeholder="Enter ...">
+                        <input type="text" class="form-control" name="studentname" id="studentname" value="FAKHRUL RADZI BIN AHMAD" placeholder="Enter ..." disabled>
                       </div>
                     </div>
                     <div class="col-sm-6">
                       <div class="form-group">
                         <label>Email Pengarah Projek</label>
-                        <input type="text" class="form-control" id="studentemailuitm" placeholder="Enter ...">
+                        <input type="text" class="form-control" name="studentemailuitm" id="studentemailuitm" value="fakhrulradzi200@gmail.com" placeholder="Enter ..." disabled>
                       </div>
                     </div>
                     <div class="col-sm-6">
                       <div class="form-group">
                         <label>Jawatan</label>
-                        <input type="text" class="form-control" id="position" placeholder="Enter ...">
+                        <input type="text" class="form-control" name="position" id="position" placeholder="Enter ...">
                       </div>
                     </div>
                     <div class="col-sm-6">
                       <div class="form-group">
                         <label>No Telefon Bimbit</label>
-                        <input type="text" class="form-control" id="" placeholder="Enter ...">
+                        <input type="text" class="form-control" id="" value="01116191774" placeholder="Enter ..." disabled>
                       </div>
                     </div>
                     <div class="col-sm-6">
                       <div class="form-group">
                         <label>CGPA Semasa</label>
-                        <input type="text" class="form-control" id="" placeholder="Enter ...">
+                        <input type="text" class="form-control" name="" id="" placeholder="Enter ...">
                       </div>
                     </div>
                     <div class="col-sm-6">
                       <div class="form-group">
                         <label>Nama Penasihat</label>
-                        <input type="text" class="form-control" id="club_advisor_name" placeholder="Enter ...">
+                        <input type="text" class="form-control" name="club_advisor_name" id="club_advisor_name" placeholder="Enter ...">
                       </div>
                     </div>
                     <div class="col-sm-6">
                       <div class="form-group">
                         <label>Email Penasihat</label>
-                        <input type="text" class="form-control" id="club_advisor_email_1" placeholder="Enter ...">
+                        <input type="text" class="form-control" name="club_advisor_email_1" id="club_advisor_email_1" placeholder="Enter ...">
                       </div>
                     </div>
                     <div class="col-sm-6">
                       <div class="form-group">
                         <label>Maklumat Pegawai Pengiring</label>
-                        <textarea class="summernote" rows="3" placeholder="Enter ..."></textarea>
+                        <textarea class="summernote" rows="3" name="escort_officer" placeholder="Enter ..."></textarea>
                       </div>
                     </div>
                 <!-- /.form-group -->
@@ -418,6 +418,7 @@
               <!-- form start -->
               <form>
                 <div class="card-body">
+                  <label for="">Rumusan program/aktiviti yang akan dijalankan</label>
                 <textarea class="summernote" id="summernote">
                 </textarea>
                 </div>
