@@ -205,7 +205,7 @@
               <span class="info-box-icon bg-success elevation-1"><i class="fas fa-clipboard-check"></i></span>
 
               <div class="info-box-content">
-                <a href=""><span class="info-box-text">Permohonan Diluluskan</span></a> 
+                <a href="admin_approved.php"><span class="info-box-text">Permohonan Diluluskan</span></a> 
                 <span class="info-box-number">760</span>
               </div>
               <!-- /.info-box-content -->
