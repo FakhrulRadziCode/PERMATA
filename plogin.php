@@ -1,16 +1,21 @@
 <?php
 
 include('connection.php');
-$username = $_POST['studentno'];
-$password = $_POST['studenticno'];
+$username = mysqli_real_escape_string($conn,$_POST['studentno']);
+$password = mysqli_real_escape_string($conn,$_POST['studenticno']);
 
-$query = mysqli_query($conn, "SELECT * FROM student WHERE studentno='$username' AND studenticno = '$password'");
+$sql = "SELECT * FROM student WHERE studentno='".$username."' AND studenticno = '".$password."'";
 
-if(mysqli_num_rows($query) == 1) {
+$qry = mysqli_query($conn,$sql);
+$row = mysqli_num_rows($qry);
+
+if($row > 0) {
+    $r = mysqli_fetch_assoc($qry);
+    session_start();
     $_SESSION['userlogged'] = 1;
-    header('Location:index.php');
+    header('Location: dashboard.php');
 }
 else {
-    header('Location:login.php?error=1');
+    echo "<script language='javascript'>alert('User does not exist.');window.location='index.php';</script>";
 }
 ?>
