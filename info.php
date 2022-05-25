@@ -33,9 +33,9 @@
 <div class="wrapper">
 
   <!-- Preloader -->
-  <div class="preloader flex-column justify-content-center align-items-center">
+  <!-- <div class="preloader flex-column justify-content-center align-items-center">
     <img class="animation__shake" src="dist/img/AdminLTELogo.png" alt="AdminLTELogo" height="60" width="60">
-  </div>
+  </div> -->
 
   <!-- Navbar -->
   <nav class="main-header navbar navbar-expand navbar-white navbar-light">
@@ -73,7 +73,7 @@
           <img src="dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
         </div>
         <div class="info">
-          <a href="#" class="d-block">Alexander Pierce</a>
+          <a href="#" class="d-block">FAKHRUL RADZI BIN AHMAD</a>
         </div>
       </div>
 
@@ -106,19 +106,19 @@
                 </a>
               </li>
               <li class="nav-item">
-                <a href="pages/forms/advanced.html" class="nav-link">
+                <a href="pages/forms/proses.php" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Permohonan Diproses</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="pages/forms/editors.html" class="nav-link">
+                <a href="pages/forms/approved.php" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Permohonan Diluluskan</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="pages/forms/validation.html" class="nav-link">
+                <a href="pages/forms/rejected.php" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Permohonan Ditolak</p>
                 </a>
@@ -126,10 +126,34 @@
             </ul>
           </li>
           <li class="nav-item">
-            <a href="info.php" class="nav-link active">
+            <a href="pages/table_user.php" class="nav-link">
+              <i class="nav-icon fas fa-list"></i>
+              <p>
+                Senarai Pengguna
+              </p>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="pages/admin_permohonan.php" class="nav-link">
+              <i class="nav-icon fas fa-folder"></i>
+              <p>
+                Permohonan Pelajar
+              </p>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="#" class="nav-link active">
               <i class="nav-icon fas fa-info-circle"></i>
               <p>
                 Info HEP
+              </p>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="plogout.php" class="nav-link">
+              <i class="nav-icon fas fa-door-open"></i>
+              <p>
+                Log Keluar
               </p>
             </a>
           </li>
@@ -199,11 +223,11 @@
   </div>
   <!-- /.content-wrapper -->
   <footer class="main-footer">
-    <strong>Copyright &copy; 2014-2021 <a href="https://adminlte.io">AdminLTE.io</a>.</strong>
+    <!-- <strong>Copyright &copy; 2014-2021 <a href="https://adminlte.io">AdminLTE.io</a>.</strong>
     All rights reserved.
     <div class="float-right d-none d-sm-inline-block">
       <b>Version</b> 3.2.0
-    </div>
+    </div> -->
   </footer>
 
   <!-- Control Sidebar -->
