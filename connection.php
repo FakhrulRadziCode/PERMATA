@@ -4,7 +4,7 @@
 $dbuser = "root";
 $dbpass = "";
 $dbhost = "localhost";
-$dbname = "permatadb";
+$dbname = "test";
 
 $conn = mysqli_connect($dbhost,$dbuser,$dbpass,$dbname);
 
