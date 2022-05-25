@@ -133,6 +133,14 @@
               </p>
             </a>
           </li>
+          <li class="nav-item">
+            <a href="../../plogout.php" class="nav-link">
+              <i class="nav-icon fas fa-door-open"></i>
+              <p>
+                Log Keluar
+              </p>
+            </a>
+          </li>
         </ul>
       </nav>
       <!-- /.sidebar-menu -->
@@ -218,7 +226,7 @@
                     <div class="col-sm-6">
                       <div class="form-group">
                         <label>Anjuran Bersama</label>
-                        <input type="text" class="form-control" id="collab" placeholder="Enter ...">
+                        <input type="text" class="form-control" id="" placeholder="Enter ...">
                       </div>
                     </div>
                     <div class="col-sm-6">
@@ -288,13 +296,13 @@
                     <div class="col-sm-6">
                       <div class="form-group">
                         <label>No Telefon Bimbit</label>
-                        <input type="text" class="form-control" id="" value="01116191774" placeholder="Enter ..." disabled>
+                        <input type="text" class="form-control" name="xx" id="studentphoneno" value="01116191774" placeholder="Enter ..." disabled>
                       </div>
                     </div>
                     <div class="col-sm-6">
                       <div class="form-group">
                         <label>CGPA Semasa</label>
-                        <input type="text" class="form-control" name="" id="" placeholder="Enter ...">
+                        <input type="text" class="form-control" name="xx" id="" placeholder="Enter ...">
                       </div>
                     </div>
                     <div class="col-sm-6">
