@@ -238,7 +238,7 @@
                     <div class="col-sm-6">
                       <div class="form-group">
                         <label>Tujuan Program/Aktiviti</label>
-                        <textarea class="form-control" name="purpose" rows="3" placeholder="Enter ..."></textarea>
+                        <textarea class="summernote" rows="3" name="escort_officer" placeholder="Enter ..."></textarea>
                       </div>
                     </div>
                     <div class="col-sm-6">
