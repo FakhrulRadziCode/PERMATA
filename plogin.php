@@ -13,6 +13,8 @@ if($row > 0) {
     $r = mysqli_fetch_assoc($qry);
     session_start();
     $_SESSION['userlogged'] = 1;
+    $_SESSION['studentname'] = $r['studentname'];
+    $_SESSION['studentno'] = $r['studentno'];
     header('Location: dashboard.php');
 }
 else {
