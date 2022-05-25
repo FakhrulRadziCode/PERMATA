@@ -4,7 +4,7 @@ include('connection.php');
 $username = mysqli_real_escape_string($conn,$_POST['studentno']);
 $password = mysqli_real_escape_string($conn,$_POST['studenticno']);
 
-$sql = "SELECT * FROM student WHERE studentno='".$username."' AND studenticno = '".$password."'";
+$sql = "SELECT * FROM students WHERE studentno='".$username."' AND studenticno = '".$password."'";
 
 $qry = mysqli_query($conn,$sql);
 $row = mysqli_num_rows($qry);
