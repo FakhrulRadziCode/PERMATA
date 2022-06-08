@@ -1,3 +1,8 @@
+<?php
+session_start();
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -278,13 +283,13 @@
                     <div class="col-sm-6">
                       <div class="form-group">
                         <label>Nama Pengarah Projek</label>
-                        <input type="text" class="form-control" name="studentname" id="studentname" value="FAKHRUL RADZI BIN AHMAD" placeholder="Enter ..." disabled>
+                        <input type="text" class="form-control" name="studentname" id="studentname" value= "<?php echo $_SESSION['studentname'];?>" placeholder="Enter ..." disabled>
                       </div>
                     </div>
                     <div class="col-sm-6">
                       <div class="form-group">
                         <label>Email Pengarah Projek</label>
-                        <input type="text" class="form-control" name="studentemailuitm" id="studentemailuitm" value="fakhrulradzi200@gmail.com" placeholder="Enter ..." disabled>
+                        <input type="email" class="form-control" name="studentemail" id="studentemail" value= "<?php echo $_SESSION['studentemail']; ?>" placeholder="Enter ..." disabled>
                       </div>
                     </div>
                     <div class="col-sm-6">
@@ -296,7 +301,7 @@
                     <div class="col-sm-6">
                       <div class="form-group">
                         <label>No Telefon Bimbit</label>
-                        <input type="text" class="form-control" name="xx" id="studentphoneno" value="01116191774" placeholder="Enter ..." disabled>
+                        <input type="text" class="form-control" name="studentphoneno" id="studentphoneno" value="<?php echo $_SESSION['studentphoneno']; ?>" placeholder="Enter ..." disabled>
                       </div>
                     </div>
                     <div class="col-sm-6">

@@ -15,6 +15,8 @@ if($row > 0) {
     $_SESSION['userlogged'] = 1;
     $_SESSION['studentname'] = $r['studentname'];
     $_SESSION['studentno'] = $r['studentno'];
+    $_SESSION['studentemail'] = $r['studentemail'];
+    $_SESSION['studentphoneno'] = $r['studentphoneno'];
     header('Location: dashboard.php');
 }
 else {
