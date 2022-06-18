@@ -1,3 +1,4 @@
+
 <?php
 
 include('connection.php');
@@ -20,6 +21,7 @@ if($row > 0) {
     header('Location: dashboard.php');
 }
 else {
+    header('Location: index.php?error=1');
     echo "<script language='javascript'>alert('User does not exist.');window.location='index.php';</script>";
 }
 ?>
