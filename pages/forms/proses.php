@@ -1,27 +1,7 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>PERMATA | Permohonan Baru</title>
+<?php
+  include('../../include/header.php');
+?>
 
-
-  <!-- Select2 -->
-  <link rel="stylesheet" href="../../plugins/select2/css/select2.min.css">
-  <link rel="stylesheet" href="../../plugins/select2-bootstrap4-theme/select2-bootstrap4.min.css">
-  <!-- Google Font: Source Sans Pro -->
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
-  <!-- Font Awesome -->
-  <link rel="stylesheet" href="../../plugins/fontawesome-free/css/all.min.css">
-  <!-- summernote -->
-  <link rel="stylesheet" href="../../plugins/summernote/summernote-bs4.min.css">
-  <!-- Theme style -->
-  <link rel="stylesheet" href="../../dist/css/adminlte.min.css">
-  <!-- InputMask -->
-  <script src="../../plugins/moment/moment.min.js"></script>
-  <!-- Tempusdominus Bootstrap 4 -->
-  <link rel="stylesheet" href="../../plugins/tempusdominus-bootstrap-4/css/tempusdominus-bootstrap-4.min.css">
-</head>
 <body class="hold-transition sidebar-mini">
 <div class="wrapper">
   <!-- Navbar -->
@@ -45,7 +25,7 @@
   <aside class="main-sidebar sidebar-dark-primary elevation-4">
     <!-- Brand Logo -->
     <a href="../../dashboard.php" class="brand-link">
-      <img src="../../dist/img/AdminLTELogo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
+      <img src="../../dist/img/uitm-logo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
       <span class="brand-text font-weight-light">PERMATA</span>
     </a>
 
@@ -53,11 +33,11 @@
     <div class="sidebar">
       <!-- Sidebar user panel (optional) -->
       <div class="user-panel mt-3 pb-3 mb-3 d-flex">
-        <div class="image">
+        <!-- <div class="image">
           <img src="../../dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
-        </div>
+        </div> -->
         <div class="info">
-          <a href="#" class="d-block">FAKHRUL RADZI BIN AHMAD</a>
+          <a href="#" class="d-block"><?php echo $_SESSION['studentname'];?></a>
         </div>
       </div>
 
@@ -84,13 +64,13 @@
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="general.php" class="nav-link">
+                <a href="general.php" class="nav-link active">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Permohonan Baru</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="#" class="nav-link active">
+                <a href="proses.php" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Permohonan Diproses</p>
                 </a>
@@ -110,22 +90,6 @@
             </ul>
           </li>
           <li class="nav-item">
-            <a href="../table_user.php" class="nav-link">
-              <i class="nav-icon fas fa-list"></i>
-              <p>
-                Senarai Pengguna
-              </p>
-            </a>
-          </li>
-          <li class="nav-item">
-            <a href="../admin_permohonan.php" class="nav-link">
-              <i class="nav-icon fas fa-folder"></i>
-              <p>
-                Permohonan Pelajar
-              </p>
-            </a>
-          </li>
-          <li class="nav-item">
             <a href="../../info.php" class="nav-link">
               <i class="nav-icon fas fa-info-circle"></i>
               <p>
@@ -134,7 +98,7 @@
             </a>
           </li>
           <li class="nav-item">
-            <a href="../../plogout.php" class="nav-link">
+            <a href="../../plogout.php" class="nav-link" style="background-color: #a83232;">
               <i class="nav-icon fas fa-door-open"></i>
               <p>
                 Log Keluar
