@@ -1,32 +1,6 @@
 <?php
-session_start();
+  include('../../include/header.php');
 ?>
-
-
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>PERMATA | Permohonan Baru</title>
-
-
-  <!-- Select2 -->
-  <link rel="stylesheet" href="../../plugins/select2/css/select2.min.css">
-  <link rel="stylesheet" href="../../plugins/select2-bootstrap4-theme/select2-bootstrap4.min.css">
-  <!-- Google Font: Source Sans Pro -->
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
-  <!-- Font Awesome -->
-  <link rel="stylesheet" href="../../plugins/fontawesome-free/css/all.min.css">
-  <!-- summernote -->
-  <link rel="stylesheet" href="../../plugins/summernote/summernote-bs4.min.css">
-  <!-- Theme style -->
-  <link rel="stylesheet" href="../../dist/css/adminlte.min.css">
-  <!-- InputMask -->
-  <script src="../../plugins/moment/moment.min.js"></script>
-  <!-- Tempusdominus Bootstrap 4 -->
-  <link rel="stylesheet" href="../../plugins/tempusdominus-bootstrap-4/css/tempusdominus-bootstrap-4.min.css">
-</head>
 <body class="hold-transition sidebar-mini">
 <div class="wrapper">
   <!-- Navbar -->
@@ -50,7 +24,7 @@ session_start();
   <aside class="main-sidebar sidebar-dark-primary elevation-4">
     <!-- Brand Logo -->
     <a href="../../dashboard.php" class="brand-link">
-      <img src="../../dist/img/AdminLTELogo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
+      <img src="../../dist/img/uitm-logo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
       <span class="brand-text font-weight-light">PERMATA</span>
     </a>
 
@@ -58,11 +32,11 @@ session_start();
     <div class="sidebar">
       <!-- Sidebar user panel (optional) -->
       <div class="user-panel mt-3 pb-3 mb-3 d-flex">
-        <div class="image">
+        <!-- <div class="image">
           <img src="../../dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
-        </div>
+        </div> -->
         <div class="info">
-          <a href="#" class="d-block">FAKHRUL RADZI BIN AHMAD</a>
+          <a href="#" class="d-block"><?php echo $_SESSION['studentname'];?></a>
         </div>
       </div>
 
@@ -115,22 +89,6 @@ session_start();
             </ul>
           </li>
           <li class="nav-item">
-            <a href="../table_user.php" class="nav-link">
-              <i class="nav-icon fas fa-list"></i>
-              <p>
-                Senarai Pengguna
-              </p>
-            </a>
-          </li>
-          <li class="nav-item">
-            <a href="../admin_permohonan.php" class="nav-link">
-              <i class="nav-icon fas fa-folder"></i>
-              <p>
-                Permohonan Pelajar
-              </p>
-            </a>
-          </li>
-          <li class="nav-item">
             <a href="../../info.php" class="nav-link">
               <i class="nav-icon fas fa-info-circle"></i>
               <p>
@@ -139,7 +97,7 @@ session_start();
             </a>
           </li>
           <li class="nav-item">
-            <a href="../../plogout.php" class="nav-link">
+            <a href="../../plogout.php" class="nav-link" style="background-color: #a83232;">
               <i class="nav-icon fas fa-door-open"></i>
               <p>
                 Log Keluar
@@ -153,6 +111,7 @@ session_start();
     <!-- /.sidebar -->
   </aside>
 
+
   <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">
     <!-- Content Header (Page header) -->
@@ -164,308 +123,264 @@ session_start();
           </div>
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
-              <!-- <li class="breadcrumb-item"><a href="#">Home</a></li> -->
-              <li class="breadcrumb-item active">Keterangan Aktiviti</li>
+              <li class="breadcrumb-item active">Permohonan Baru</li>
             </ol>
           </div>
         </div>
       </div><!-- /.container-fluid -->
     </section>
 
-    <!-- Main content -->
-    <section class="content">
-      <div class="container-fluid">
-        <div class="row">
-          <!-- left column -->
-          <div class="col-sm-12" >
-            <!-- general form elements -->
+    <form id="application" name="application" action="../../papplication.php" method="POST" onsubmit="return confirm('Are you sure you want to submit this form?');">
+        <section class="content">
+        <div class="container-fluid">
+            <!-- SELECT2 EXAMPLE -->
             <div class="card card-primary">
-              <div class="card-header">
+            <div class="card-header">
                 <h3 class="card-title">Keterangan Aktiviti</h3>
-              </div>
-              <!-- /.card-header -->
-              <div class="card-body">
-                <form>
-                  <div class="row">
-                    <div class="col-sm-6">
-                      <!-- text input -->
-                      <div class="form-group">
+            </div>
+            <!-- /.card-header -->
+            <div class="card-body">
+                <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group">
                         <label>Nama Aktiviti/Program <i>(Sila Gunakan Huruf Besar)</i></label>
-                        <input type="text" name="activity_no" class="form-control" id="activity_no" placeholder="Enter ...">
-                      </div>
+                        <input type="text" name="activity_no" class="form-control" id="activity_no" required>
                     </div>
-                    <div class="col-sm-6">
-                      <div class="form-group">
-                        <label>Nama Kelab/Persatuan <i>(Nama Penuh Kelab/Persatuan)</i></label>
-                        <input type="text" name="activity_name" class="form-control" id="activity_name" placeholder="Enter ...">
-                      </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label>Nama Kelab/Persatuan</label>
+                        <select class="form-control select2bs4" name="organization_id" style="width: 100%;">
+                            <option selected>DN69 - MARA Youth Technology Computer Club (MYTECC)</option>
+                            <option>YM42 - Muslim Apprentince Club (MAC)</option>
+                            <option>DE22 - English Club (EC)</option>
+                            <option>NU12 - Photomedia Club (PMC)</option>
+                        </select>
                     </div>
-                    <div class="col-sm-6">
-                      <div class="form-group">
+                </div>
+                <!-- <div class="col-md-6">
+                    <div class="form-group">
                         <label>Kod Persatuan</label>
-                        <input type="text" name="organization_id" class="form-control" id="organization_id" placeholder="Enter ...">
-                      </div>
+                        <input type="text" name="organization_id" class="form-control" id="organization_id">
                     </div>
-                    <div class="col-sm-6">
-                      <div class="form-group">
-                        <label>Peringkat Aktiviti</label>
-                        <select class="form-control select2bs4" name="level_name" style="width: 100%;">
-                          <option selected>Antarabangsa</option>
-                          <option>Kebangsaan</option>
-                          <option>Negeri</option>
-                          <option>Daerah</option>
-                          <option>Universiti</option>
-                          <option>Kampus</option>
-                          <option>Fakulti</option>
-                          <option selected="selected">Kolej</option>
-                          <option>Persatuan/Kelab</option>
-                        </select>
-                      </div>
+                </div> -->
+                <div class="col-md-6">
+                    <div class="form-group">
+                          <label>Peringkat Aktiviti</label>
+                          <select class="form-control select2bs4" name="level_name" style="width: 100%;">
+                            <option selected>Antarabangsa</option>
+                            <option>Kebangsaan</option>
+                            <option>Negeri</option>
+                            <option>Daerah</option>
+                            <option>Universiti</option>
+                            <option>Kampus</option>
+                            <option>Fakulti</option>
+                            <option selected="selected">Kolej</option>
+                            <option>Persatuan/Kelab</option>
+                          </select>
                     </div>
-                    <div class="col-sm-6">
-                      <div class="form-group">
+                </div>
+                <!-- <div class="col-md-6">
+                    <div class="form-group">
                         <label>Anjuran <i>(Nama kelab/persatuan yang menganjurkan program)</i></label>
-                        <input type="text" name="" class="form-control" id="organizer_name" placeholder="Enter ...">
-                      </div>
+                        <input type="text" name="organizer_name" class="form-control" id="organizer_name">
                     </div>
-                    <div class="col-sm-6">
-                      <div class="form-group">
+                </div> -->
+                <div class="col-md-6">
+                    <div class="form-group">
                         <label>Anjuran Bersama</label>
-                        <input type="text" class="form-control" id="" placeholder="Enter ...">
-                      </div>
+                        <input type="text" name="coorganizer_name" class="form-control" id="coorganizer_name" required>
                     </div>
-                    <div class="col-sm-6">
-                      <div class="form-group">
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
                         <label>Objektif Aktiviti</label>
-                        <textarea class="summernote" name="objective" rows="3" placeholder="Enter ..."></textarea>
-                      </div>
+                        <textarea class="summernote" name="objective" rows="3" required></textarea>
                     </div>
-                    <div class="col-sm-6">
-                      <div class="form-group">
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
                         <label>Tujuan Program/Aktiviti</label>
-                        <textarea class="summernote" rows="3" name="escort_officer" placeholder="Enter ..."></textarea>
-                      </div>
+                        <textarea class="summernote" rows="3" name="purpose" required></textarea>
                     </div>
-                    <div class="col-sm-6">
-                      <div class="form-group">
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
                         <label>Latar Belakang Program/Aktiviti</label>
-                        <textarea class="summernote" name="activity_background" rows="3" placeholder="Enter ..."></textarea>
-                      </div>
+                          <textarea class="summernote" name="activity_background" rows="3" required></textarea>
                     </div>
-                    <div class="col-sm-6">
-                      <div class="form-group">
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label>Ahli Jawatankuasa</label>
+                          <textarea class="summernote" name="committee" rows="3" required></textarea>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
                         <label>Kategori Aktiviti</label>
-                        <select class="select2" multiple="multiple" name="category_id" data-placeholder="Sila pilih yang berkenaan" style="width: 100%;">
-                          <option>Akademik/Ilmiah</option>
-                          <option>Sukan/Rekreasi</option>
-                          <option>Kerohanian</option>
-                          <option>Keusahawanan</option>
-                          <option>Kebudayaan/Warisan</option>
-                          <option>Kesukarelawanan</option>
-                          <option>Pengucapan Awam</option>
-                          <option>Sains, Teknologi & Inovasi</option>
-                          <option>Wacana Intelek</option>
-                        </select>
-                      </div>
+                          <select class="select2" multiple="multiple" name="category_id" data-placeholder="Sila pilih yang berkenaan" style="width: 100%;">
+                            <option>Akademik/Ilmiah</option>
+                            <option>Sukan/Rekreasi</option>
+                            <option>Kerohanian</option>
+                            <option>Keusahawanan</option>
+                            <option>Kebudayaan/Warisan</option>
+                            <option>Kesukarelawanan</option>
+                            <option>Pengucapan Awam</option>
+                            <option>Sains, Teknologi & Inovasi</option>
+                            <option>Wacana Intelek</option>
+                          </select>
                     </div>
-                    <div class="col-sm-6">
-                      <!-- date picker-->
-                      <div class="form-group">
-                        <label>Tarikh Aktiviti:</label>
-                          <div class="input-group date" id="reservationdate" data-target-input="nearest">
-                              <input type="text" class="form-control datetimepicker-input" data-target="#reservationdate"/>
-                              <div class="input-group-append" data-target="#reservationdate" data-toggle="datetimepicker">
-                                  <div class="input-group-text"><i class="fa fa-calendar"></i></div>
-                              </div>
-                          </div>
-                      </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                          <label>Tarikh Aktiviti:</label>
+                            <div class="input-group date" name="reservationdate" id="reservationdate" data-target-input="nearest">
+                                <input type="text"  id="date" name="date" value="Date" class="form-control datetimepicker-input" data-target="#reservationdate"/>
+                                <div class="input-group-append" data-target="#reservationdate" data-toggle="datetimepicker">
+                                    <div class="input-group-text"><i class="fa fa-calendar"></i></div>
+                                </div>
+                            </div>
                     </div>
-                    <div class="col-sm-6">
-                      <div class="form-group">
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
                         <label>Nama Pengarah Projek</label>
-                        <input type="text" class="form-control" name="studentname" id="studentname" value= "<?php echo $_SESSION['studentname'];?>" placeholder="Enter ..." disabled>
-                      </div>
+                        <input type="text" class="form-control" name="studentname" id="studentname" value= "<?php echo $_SESSION['studentname'];?>" disabled>
                     </div>
-                    <div class="col-sm-6">
-                      <div class="form-group">
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
                         <label>Email Pengarah Projek</label>
-                        <input type="email" class="form-control" name="studentemail" id="studentemail" value= "<?php echo $_SESSION['studentemail']; ?>" placeholder="Enter ..." disabled>
-                      </div>
+                        <input type="email" class="form-control" name="studentemail" id="studentemail" value= "<?php echo $_SESSION['studentemail']; ?>" disabled>
                     </div>
-                    <div class="col-sm-6">
-                      <div class="form-group">
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
                         <label>Jawatan</label>
-                        <input type="text" class="form-control" name="position" id="position" placeholder="Enter ...">
-                      </div>
+                        <input type="text" class="form-control" name="position" id="position" required>
                     </div>
-                    <div class="col-sm-6">
-                      <div class="form-group">
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
                         <label>No Telefon Bimbit</label>
-                        <input type="text" class="form-control" name="studentphoneno" id="studentphoneno" value="<?php echo $_SESSION['studentphoneno']; ?>" placeholder="Enter ..." disabled>
-                      </div>
+                        <input type="text" class="form-control" name="studentphoneno" id="studentphoneno" value="<?php echo $_SESSION['studentphoneno']; ?>" disabled>
                     </div>
-                    <div class="col-sm-6">
-                      <div class="form-group">
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
                         <label>CGPA Semasa</label>
-                        <input type="text" class="form-control" name="xx" id="" placeholder="Enter ...">
-                      </div>
+                        <input type="text" class="form-control" name="cgpa" id="" required>
                     </div>
-                    <div class="col-sm-6">
-                      <div class="form-group">
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
                         <label>Nama Penasihat</label>
-                        <input type="text" class="form-control" name="club_advisor_name" id="club_advisor_name" placeholder="Enter ...">
-                      </div>
+                        <input type="text" class="form-control" name="club_advisor_name" id="club_advisor_name" required>
                     </div>
-                    <div class="col-sm-6">
-                      <div class="form-group">
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
                         <label>Email Penasihat</label>
-                        <input type="text" class="form-control" name="club_advisor_email_1" id="club_advisor_email_1" placeholder="Enter ...">
-                      </div>
+                        <input type="text" class="form-control" name="club_advisor_email_1" id="club_advisor_email_1" required>
                     </div>
-                    <div class="col-sm-6">
-                      <div class="form-group">
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
                         <label>Maklumat Pegawai Pengiring</label>
-                        <textarea class="summernote" rows="3" name="escort_officer" placeholder="Enter ..."></textarea>
-                      </div>
+                        <textarea class="summernote" rows="3" name="escort_officer"></textarea>
                     </div>
-                <!-- /.form-group -->
+                </div>
+                </div>
+                <!-- /.row -->
+
                 
-
-                <!-- /.form-group -->
-              </div>
-                  
-
-                  <!-- input states -->
-                  
-
-                </form>
-              </div>
-              <!-- /.card-body -->
             </div>
-
-
-            
+            <!-- /.card-body -->
+            </div>
             <!-- /.card -->
-            <!-- general form elements -->
+
+            <!-- SELECT2 EXAMPLE -->
             <div class="card card-primary">
-              <div class="card-header">
-                <h3 class="card-title">Penyertaan (Bilangan Peserta)</h3>
-              </div>
-              <!-- /.card-header -->
-              <div class="card-body">
-                <form>
-                  <div class="row">
-                    <div class="col-sm-6">
-                      <div class="form-group">
-                        <label>Bilangan peserta lelaki</label>
-                        <input type="number" class="form-control" placeholder="Enter ...">
-                      </div>
+                <div class="card-header">
+                    <h3 class="card-title">Penyertaan (Bilangan Peserta)</h3>
+                </div>
+
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label>Bilangan peserta lelaki</label>
+                                <input type="number" class="form-control">
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label>Bilangan peserta perempuan</label>
+                                <input type="number" class="form-control">
+                            </div>
+                            <!-- /.form-group -->
+                        </div>
+                    <!-- /.col -->
                     </div>
-                    <div class="col-sm-6">
-                      <div class="form-group">
-                        <label>Bilangan peserta perempuan</label>
-                        <input type="number" class="form-control" placeholder="Enter ...">
-                      </div>
-                    </div>
-                <!-- /.form-group -->
-                
-
-                <!-- /.form-group -->
-              </div>
-                  
-
-                  <!-- input states -->
-                  
-
-                  
-
-                </form>
-              </div>
-              <!-- /.card-body -->
+                    <!-- /.row -->
+                </div>
             </div>
-
-            
-            
             <!-- /.card -->
             <div class="card card-primary">
-              <div class="card-header">
-                <h3 class="card-title">Hasil Aktiviti dan Kemahiran Insaniah</h3>
-              </div>
-              <!-- /.card-header -->
-              <!-- form start -->
-              <form>
-                <div class="card-body">
-                  <div class="form-group">
-                    <label>Penganjur</label>
-                    <select class="select2" multiple="multiple" data-placeholder="Sila pilih yang berkenaan" style="width: 100%;">
-                      <option>Kemahiran Berkomunikasi (KI1)</option>
-                      <option>Pemikiran Kritis dan Kemahiran Menyelesaikan Masalah (KI2)</option>
-                      <option>Kemahiran Kerja Berpasukan (KI3)</option>
-                      <option>Pembelajaran Berterusan dan Pengurusan Maklumat (KI4)</option>
-                      <option>Kemahiran Keusahawanan (KI5)</option>
-                      <option>Etika dan Moral Profesional (KI6)</option>
-                      <option>Kemahiran Kepimpinan (KI7)</option>
-                    </select>
-                  </div>
-                  <div class="form-group">
-                    <label>Peserta</label>
-                    <select class="select2" multiple="multiple" data-placeholder="Sila pilih yang berkenaan" style="width: 100%;">
-                      <option>Kemahiran Berkomunikasi (KI1)</option>
-                      <option>Pemikiran Kritis dan Kemahiran Menyelesaikan Masalah (KI2)</option>
-                      <option>Kemahiran Kerja Berpasukan (KI3)</option>
-                      <option>Pembelajaran Berterusan dan Pengurusan Maklumat (KI4)</option>
-                      <option>Kemahiran Keusahawanan (KI5)</option>
-                      <option>Etika dan Moral Profesional (KI6)</option>
-                      <option>Kemahiran Kepimpinan (KI7)</option>
-                    </select>
-                  </div>
+                <div class="card-header">
+                    <h3 class="card-title">Hasil Aktiviti dan Kemahiran Insaniah</h3>
                 </div>
-              </form>
-            </div>
 
+                <div class="card-body">
+                    <div class="form-group">
+                      <label>Penganjur</label>
+                      <select class="select2" multiple="multiple" data-placeholder="Sila pilih yang berkenaan" style="width: 100%;">
+                        <option>Kemahiran Berkomunikasi (KI1)</option>
+                        <option>Pemikiran Kritis dan Kemahiran Menyelesaikan Masalah (KI2)</option>
+                        <option>Kemahiran Kerja Berpasukan (KI3)</option>
+                        <option>Pembelajaran Berterusan dan Pengurusan Maklumat (KI4)</option>
+                        <option>Kemahiran Keusahawanan (KI5)</option>
+                        <option>Etika dan Moral Profesional (KI6)</option>
+                        <option>Kemahiran Kepimpinan (KI7)</option>
+                      </select>
+                    </div>
+                    <div class="form-group">
+                      <label>Peserta</label>
+                      <select class="select2" multiple="multiple" data-placeholder="Sila pilih yang berkenaan" style="width: 100%;">
+                        <option>Kemahiran Berkomunikasi (KI1)</option>
+                        <option>Pemikiran Kritis dan Kemahiran Menyelesaikan Masalah (KI2)</option>
+                        <option>Kemahiran Kerja Berpasukan (KI3)</option>
+                        <option>Pembelajaran Berterusan dan Pengurusan Maklumat (KI4)</option>
+                        <option>Kemahiran Keusahawanan (KI5)</option>
+                        <option>Etika dan Moral Profesional (KI6)</option>
+                        <option>Kemahiran Kepimpinan (KI7)</option>
+                      </select>
+                    </div>
+                </div>
+            </div>
             <div class="card card-primary">
-              <div class="card-header">
-                <h3 class="card-title">Penutup</h3>
-              </div>
-              <!-- /.card-header -->
-              <!-- form start -->
-              <form>
-                <div class="card-body">
-                  <label for="">Rumusan program/aktiviti yang akan dijalankan</label>
-                <textarea class="summernote" id="summernote">
-                </textarea>
+                <div class="card-header">
+                    <h3 class="card-title">Hasil Aktiviti dan Kemahiran Insaniah</h3>
                 </div>
-              </form>
-            </div>
 
+                <div class="card-body">
+                    <label for="">Rumusan program/aktiviti yang akan dijalankan</label>
+                        <textarea class="summernote" id="summernote"></textarea>
+                </div>
+            </div>
+            <!-- /.card -->
+        </div>
+        <!-- /.container-fluid -->
             <div class="card-footer">
-              <button type="submit" class="btn btn-primary">Hantar</button>
+              <button type="submit" name="btnsend" id="btnsend" class="btn btn-primary">Hantar</button>
               <button type="submit" class="btn btn-danger">Padam</button>
             </div>
-            <!-- general form elements -->
-            
-            <!-- /.card -->
-
-            <!-- Input addon -->
-            
-            <!-- /.card -->
-            <!-- Horizontal Form -->
-            
-            <!-- /.card -->
-
-          </div>
-          <!--/.col (left) -->
-          <!-- right column -->
-          
-          <!--/.col (right) -->
-        </div>
-        <!-- /.row -->
-      </div><!-- /.container-fluid -->
-    </section>
+        </section>
     <!-- /.content -->
+    </form>
+    <!-- Main content -->
   </div>
-
-  
   <!-- /.content-wrapper -->
   <footer class="main-footer">
     <div class="float-right d-none d-sm-block">
@@ -474,7 +389,6 @@ session_start();
     <strong>Copyright &copy; 2014-2021 <a href="https://adminlte.io">AdminLTE.io</a>.</strong> All rights reserved.
   </footer>
 
-  
   <!-- Control Sidebar -->
   <aside class="control-sidebar control-sidebar-dark">
     <!-- Control sidebar content goes here -->
@@ -482,8 +396,6 @@ session_start();
   <!-- /.control-sidebar -->
 </div>
 <!-- ./wrapper -->
-
-
 
 <!-- jQuery -->
 <script src="../../plugins/jquery/jquery.min.js"></script>
@@ -495,10 +407,31 @@ session_start();
 <script src="../../plugins/bs-custom-file-input/bs-custom-file-input.min.js"></script>
 <!-- AdminLTE App -->
 <script src="../../dist/js/adminlte.min.js"></script>
+<!-- SweetAlert2 -->
+<script src="../../plugins/sweetalert2/sweetalert2.min.js"></script>
 <!-- Tempusdominus Bootstrap 4 -->
 <script src="../../plugins/tempusdominus-bootstrap-4/js/tempusdominus-bootstrap-4.min.js"></script>
 <!-- Summernote -->
 <script src="../../plugins/summernote/summernote-bs4.min.js"></script>
+<!-- Alert -->
+<script>
+  function papplication(student_id) {
+    Swal.fire({
+      title: 'Do you want to save the changes?',
+      showDenyButton: true,
+      showCancelButton: true,
+      confirmButtonText: 'Save',
+      denyButtonText: `Don't save`,
+    }).then((result) => {
+      /* Read more about isConfirmed, isDenied below */
+      if (result.isConfirmed) {
+        Swal.fire('Saved!', '', 'success')
+      } else if (result.isDenied) {
+        Swal.fire('Changes are not saved', '', 'info')
+      }
+    })
+  }
+</script>
 <!-- Page specific script -->
 
 <script>
