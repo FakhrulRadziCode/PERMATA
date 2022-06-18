@@ -15,6 +15,11 @@
   <link rel="stylesheet" href="dist/css/adminlte.min.css">
   <!-- SweetAlert2 -->
   <link rel="stylesheet" href="plugins/sweetalert2-theme-bootstrap-4/bootstrap-4.min.css">
+  <!-- Toastr -->
+  <link rel="stylesheet" href="../../plugins/toastr/toastr.min.css">
+  <script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/2.0.1/css/toastr.css" rel="stylesheet"/>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/2.0.1/js/toastr.js"></script>
 </head>
 <body class="hold-transition login-page">
 <div class="login-box">
@@ -50,9 +55,8 @@
             <button type="submit" class="btn btn-primary btn-block">Log Masuk</button>
           </div>
           <div class="col-4">
-            <button type="submit" class="btn btn-info btn-block">Staf HEP</button>
+            <button type="button" class="btn btn-outline-primary btn-block" onclick = "location.href = 'loginhep.php';" title="Log masuk sebagai Pelajar"><b>Staf HEP</b></button>
           </div>
-          <!-- /.col -->
         </div>
       </form>
 
@@ -74,24 +78,17 @@
 <script src="dist/js/adminlte.min.js"></script>
 <!-- SweetAlert2 -->
 <script src="plugins/sweetalert2/sweetalert2.min.js"></script>
+<!-- Toastr -->
+<script src="../../plugins/toastr/toastr.min.js"></script>
 </body>
 
 <?php
 $x = isset ($_GET['error']);
 if($x==1) {
-  echo " 
-    <script>
-    var Toast = Swal.mixin({
-      toast: true,
-      position: 'top-end',
-      showConfirmButton: false,
-      timer: 3000
-    });
-    Toast.fire({
-      icon: 'warning',
-      title: 'Log masuk tidak berjaya'
-    })
-    </script>";
+  echo "
+  <script>
+    toastr.warning('Log masuk gagal.')
+  </script>; ";
 }
 else {
   echo '';
