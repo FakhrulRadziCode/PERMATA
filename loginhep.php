@@ -29,7 +29,7 @@
 
       <form id="login" action="plogin_hep.php" method="post">
         <div class="input-group mb-3">
-          <input type="text" class="form-control" placeholder="Nombor Pelajar" name="user_id" >
+          <input type="text" class="form-control" placeholder="ID Staf" name="user_id" >
           <div class="input-group-append">
             <div class="input-group-text">
               <span class="fa fa-id-badge"></span>
@@ -37,7 +37,7 @@
           </div>
         </div>
         <div class="input-group mb-3">
-          <input type="password" class="form-control" placeholder="Nombor IC Pelajar" name="user_icno">
+          <input type="password" class="form-control" placeholder="Nombor IC Staf" name="user_icno">
           <div class="input-group-append">
             <div class="input-group-text">
               <span class="fas fa-lock"></span>
@@ -50,12 +50,11 @@
             <button type="submit" class="btn btn-primary btn-block">Log Masuk</button>
           </div>
           <div class="col-4">
-            <button type="submit" class="btn btn-info btn-block">Staf HEP</button>
+          <button type="button" class="btn btn-outline-primary btn-block" onclick = "location.href = 'index.php';" title="Log masuk sebagai Staf"><b>Pelajar</b></button>
           </div>
           <!-- /.col -->
         </div>
       </form>
-
       <!-- /.social-auth-links -->
 
       
