@@ -31,11 +31,6 @@ if(!isset($_SESSION['userlogged']) || $_SESSION['userlogged'] !=1) {
 <body class="hold-transition sidebar-mini layout-fixed">
 <div class="wrapper">
 
-  <!-- Preloader -->
-  <!-- <div class="preloader flex-column justify-content-center align-items-center">
-    <img class="animation__shake" src="dist/img/AdminLTELogo.png" alt="AdminLTELogo" height="60" width="60">
-  </div> -->
-
   <!-- Navbar -->
   <nav class="main-header navbar navbar-expand navbar-white navbar-light">
     <!-- Left navbar links -->
@@ -44,15 +39,12 @@ if(!isset($_SESSION['userlogged']) || $_SESSION['userlogged'] !=1) {
         <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
       </li>
       <li class="nav-item d-none d-sm-inline-block">
-        <a href="index3.html" class="nav-link">Home</a>
+        <a href="dashboard.php" class="nav-link">Halaman Utama</a>
       </li>
       <li class="nav-item d-none d-sm-inline-block">
-        <a href="#" class="nav-link">Contact</a>
+        <a href="#" class="nav-link">Hubungi</a>
       </li>
     </ul>
-
-    <!-- Right navbar links -->
-    
   </nav>
   <!-- /.navbar -->
 
@@ -133,7 +125,7 @@ if(!isset($_SESSION['userlogged']) || $_SESSION['userlogged'] !=1) {
             </a>
           </li>
           <li class="nav-item">
-            <a href="plogout.php" class="nav-link">
+            <a href="plogout.php" class="nav-link" style="background-color: #a83232;">
               <i class="nav-icon fas fa-door-open"></i>
               <p>
                 Log Keluar
