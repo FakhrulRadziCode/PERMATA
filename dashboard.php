@@ -78,9 +78,6 @@ if(!isset($_SESSION['userlogged']) || $_SESSION['userlogged'] !=1) {
     <div class="sidebar">
       <!-- Sidebar user panel (optional) -->
       <div class="user-panel mt-3 pb-3 mb-3 d-flex">
-        <!-- <div class="image">
-          <img src="dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
-        </div> -->
         <div class="info">
           <a href="#" class="d-block"><?php echo $_SESSION['studentname'];?></a>
         </div>
@@ -143,7 +140,7 @@ if(!isset($_SESSION['userlogged']) || $_SESSION['userlogged'] !=1) {
             </a>
           </li>
           <li class="nav-item">
-            <a href="plogout.php" class="nav-link">
+            <a href="plogout.php" class="nav-link" style="background-color: #a83232;">
               <i class="nav-icon fas fa-door-open"></i>
               <p>
                 Log Keluar
