@@ -8,7 +8,7 @@ session_start();
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>AdminLTE 3 | Log in (v2)</title>
+  <title>PERMATA</title>
 
   <!-- Google Font: Source Sans Pro -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
@@ -50,10 +50,7 @@ session_start();
         <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
       </li>
       <li class="nav-item d-none d-sm-inline-block">
-        <a href="index3.html" class="nav-link">Home</a>
-      </li>
-      <li class="nav-item d-none d-sm-inline-block">
-        <a href="#" class="nav-link">Contact</a>
+        <a href="#" class="nav-link"></a>
       </li>
     </ul>
 
@@ -100,9 +97,9 @@ session_start();
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="table_application.php" class="nav-link active">
+                <a href="table_application.php" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>Permohonan Baru</p>
+                  <p>Senarai Permohonan</p>
                 </a>
               </li>
               <li class="nav-item">
@@ -134,7 +131,7 @@ session_start();
             </a>
           </li>
           <li class="nav-item">
-            <a href="plogout.php" class="nav-link">
+            <a href="plogout.php" class="nav-link" style="background-color: #a83232;">
               <i class="nav-icon fas fa-door-open"></i>
               <p>
                 Log Keluar
@@ -159,8 +156,7 @@ session_start();
           </div>
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
-              <li class="breadcrumb-item"><a href="#">Home</a></li>
-              <li class="breadcrumb-item active">Permohonan</li>
+              <li class="breadcrumb-item active">Halaman Utama</li>
             </ol>
           </div>
         </div>
@@ -177,7 +173,7 @@ session_start();
               <span class="info-box-icon bg-info elevation-1"><i class="fas fa-cog"></i></span>
 
               <div class="info-box-content">
-                <a href="#"><span class="info-box-text">Senarai Permohonan</span></a> 
+                <a href="table_application.php"><span class="info-box-text">Senarai Permohonan</span></a> 
                 <span class="info-box-number">
                   10
                   <small>%</small>
