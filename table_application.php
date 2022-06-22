@@ -37,10 +37,7 @@ session_start();
         <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
       </li>
       <li class="nav-item d-none d-sm-inline-block">
-        <a href="index3.html" class="nav-link">Home</a>
-      </li>
-      <li class="nav-item d-none d-sm-inline-block">
-        <a href="#" class="nav-link">Contact</a>
+        <a href="dashboard_admin.php" class="nav-link">Halaman Utama</a>
       </li>
     </ul>
 
@@ -70,7 +67,7 @@ session_start();
       <nav class="mt-2">
         <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
           <li class="nav-item">
-            <a href="admin_permohonan.php" class="nav-link">
+            <a href="dashboard_admin.php" class="nav-link">
               <i class="nav-icon fas fa-home"></i>
               <p>
                 Halaman Utama
@@ -78,15 +75,42 @@ session_start();
             </a>
           </li>
           <li class="nav-item">
-            <a href="#" class="nav-link active">
+            <a href="#" class="nav-link">
               <i class="nav-icon fas fa-folder"></i>
               <p>
-                Senarai Permohonan
+                Permohonan Pelajar
+                <i class="fas fa-angle-left right"></i>
               </p>
             </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="table_application.php" class="nav-link active">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Senarai Permohonan</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="proses.php" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Permohonan Diproses</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="approved.php" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Permohonan Diluluskan</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="rejected.php" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Permohonan Ditolak</p>
+                </a>
+              </li>
+            </ul>
           </li>
           <li class="nav-item">
-            <a href="#" class="nav-link">
+            <a href="pages/table_user.php" class="nav-link">
               <i class="nav-icon fas fa-list"></i>
               <p>
                 Senarai Pengguna
@@ -94,7 +118,7 @@ session_start();
             </a>
           </li>
           <li class="nav-item">
-            <a href="plogout.php" class="nav-link">
+            <a href="plogout.php" class="nav-link" style="background-color: #a83232;">
               <i class="nav-icon fas fa-door-open"></i>
               <p>
                 Log Keluar
@@ -120,7 +144,7 @@ session_start();
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
               <li class="breadcrumb-item"><a href="#">Home</a></li>
-              <li class="breadcrumb-item active">Senarai Permohonan</li>
+              <li class="breadcrumb-item">Senarai Permohonan</li>
             </ol>
           </div>
         </div>
@@ -138,7 +162,7 @@ session_start();
               </div>
               <!-- /.card-header -->
               <div class="card-body">
-                <table id="example2" class="table table-bordered table-hover">
+                <table id="example1" class="table table-bordered table-hover">
                   <thead>
                   <tr>
                     <th>Bil.</th>
@@ -156,10 +180,12 @@ session_start();
                   <tbody>
                   <?php
                     include("connection.php");
-                    $sql = "SELECT a.activity_name, a.organization_name, a.coorganizer, a.activity_date, l.level_name, a.studentno, s.studentname, a.club_advisor_name, a.application_status
+                    $sql = "SELECT a.activity_name, o.organization_name, a.coorganizer, a.activity_date, l.level_name, a.studentno, s.studentname, a.club_advisor_name, a.application_status
                     from activity a 
                     join students s on s.studentno = a.studentno
-                    join levels l on l.level_id = a.level_id;";
+                    join levels l on l.level_id = a.level_id
+                    join organization o on o.organization_id = a.organization_id
+                    where a.application_status = 'processing';";
                     $qry = mysqli_query($conn, $sql);
                     $row = mysqli_num_rows($qry);
 
@@ -179,7 +205,7 @@ session_start();
                     <td><?php echo $d['studentname']; ?></td>
                     <td><?php echo $d['club_advisor_name']; ?></td>
                     <td><?php echo $d['application_status']; ?></td>
-                    <td><a href="" class="btn btn-sm btn-danger">Delete</a></td>
+                    <td></td>
                 </tr>
                 <?php
                             $counter++;
@@ -241,6 +267,7 @@ session_start();
 <script src="plugins/datatables-buttons/js/buttons.print.min.js"></script>
 <script src="plugins/datatables-buttons/js/buttons.colVis.min.js"></script>
 <!-- Page specific script -->
+
 <script>
   $(function () {
     $("#example1").DataTable({
@@ -250,7 +277,7 @@ session_start();
     $('#example2').DataTable({
       "paging": true,
       "lengthChange": false,
-      "searching": false,
+      "searching": true,
       "ordering": true,
       "info": true,
       "autoWidth": false,
