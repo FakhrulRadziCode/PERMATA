@@ -1,24 +1,8 @@
 <?php
   include('../../include/header.php');
+  include('../../connection.php')
 ?>
-<body class="hold-transition sidebar-mini">
-<div class="wrapper">
-  <!-- Navbar -->
-  <nav class="main-header navbar navbar-expand navbar-white navbar-light">
-    <!-- Left navbar links -->
-    <ul class="navbar-nav">
-      <li class="nav-item">
-        <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
-      </li>
-      <li class="nav-item d-none d-sm-inline-block">
-        <a href="../../dashboard.php" class="nav-link">Home</a>
-      </li>
-      <li class="nav-item d-none d-sm-inline-block">
-        <a href="#" class="nav-link">Hubungi</a>
-      </li>
-    </ul>
-  </nav>
-  <!-- /.navbar -->
+
 
   <!-- Main Sidebar Container -->
   <aside class="main-sidebar sidebar-dark-primary elevation-4">
@@ -130,10 +114,25 @@
       </div><!-- /.container-fluid -->
     </section>
 
-    <form id="application" name="application" action="../../papplication.php" method="POST" onsubmit="return confirm('Are you sure you want to submit this form?');">
+      <form id="application" name="application" action="../../papplication.php" method="POST" onsubmit="return confirm('Are you sure you want to submit the application?');">
         <section class="content">
         <div class="container-fluid">
             <!-- SELECT2 EXAMPLE -->
+            <?php
+                    if(isset($_SESSION['status']))
+                    {
+                      ?>
+                        <div class="alert alert-success alert-dismissible fade show" role="alert">
+                          <?php echo $_SESSION['status']; ?>
+                          <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                          </button>
+                        </div>
+                      <?php
+                      unset($_SESSION['status']);
+                    }
+                  
+            ?>
             <div class="card card-primary">
             <div class="card-header">
                 <h3 class="card-title">Keterangan Aktiviti</h3>
@@ -150,12 +149,17 @@
                 <div class="col-md-6">
                     <div class="form-group">
                         <label>Nama Kelab/Persatuan</label>
-                        <select class="form-control select2bs4" name="organization_id" style="width: 100%;">
-                            <option selected>DN69 - MARA Youth Technology Computer Club (MYTECC)</option>
-                            <option>YM42 - Muslim Apprentince Club (MAC)</option>
-                            <option>DE22 - English Club (EC)</option>
-                            <option>NU12 - Photomedia Club (PMC)</option>
-                        </select>
+                        <?php
+                        if($r_set = $conn-> query("SELECT * FROM organization")){
+                        echo"<select class='form-control select2bs4' name='organization_id' style='width: 100%;'>";
+                        while ($row = $r_set->fetch_assoc()){
+                          echo "<option value=$row[organization_id]>$row[organization_id] - $row[organization_name] </option>";
+                        }
+                        echo "</select>";
+                        }else{
+                          echo $connection->error;
+                        }
+                        ?>
                     </div>
                 </div>
                 <!-- <div class="col-md-6">
@@ -168,15 +172,15 @@
                     <div class="form-group">
                           <label>Peringkat Aktiviti</label>
                           <select class="form-control select2bs4" name="level_name" style="width: 100%;">
-                            <option selected>Antarabangsa</option>
-                            <option>Kebangsaan</option>
-                            <option>Negeri</option>
-                            <option>Daerah</option>
-                            <option>Universiti</option>
-                            <option>Kampus</option>
-                            <option>Fakulti</option>
-                            <option selected="selected">Kolej</option>
-                            <option>Persatuan/Kelab</option>
+                          <option value="IT">Antarabangsa</option>
+                            <option value="NA">Kebangsaan</option>
+                            <option value="ST">Negeri</option>
+                            <option value="DT">Daerah</option>
+                            <option value="UN">Universiti</option>
+                            <option value="CP">Kampus</option>
+                            <option value="FC">Fakulti</option>
+                            <option value="CL" selected="selected">Kolej</option>
+                            <option value="OG">Persatuan/Kelab</option>
                           </select>
                     </div>
                 </div>
@@ -311,13 +315,13 @@
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label>Bilangan peserta lelaki</label>
-                                <input type="number" class="form-control">
+                                <input type="number" name="maleparticipant" class="form-control">
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label>Bilangan peserta perempuan</label>
-                                <input type="number" class="form-control">
+                                <input type="number" name="femaleparticipant" class="form-control">
                             </div>
                             <!-- /.form-group -->
                         </div>
@@ -335,7 +339,7 @@
                 <div class="card-body">
                     <div class="form-group">
                       <label>Penganjur</label>
-                      <select class="select2" multiple="multiple" data-placeholder="Sila pilih yang berkenaan" style="width: 100%;">
+                      <select class="select2" name="organizergoal" multiple="multiple" data-placeholder="Sila pilih yang berkenaan" style="width: 100%;">
                         <option>Kemahiran Berkomunikasi (KI1)</option>
                         <option>Pemikiran Kritis dan Kemahiran Menyelesaikan Masalah (KI2)</option>
                         <option>Kemahiran Kerja Berpasukan (KI3)</option>
@@ -347,7 +351,7 @@
                     </div>
                     <div class="form-group">
                       <label>Peserta</label>
-                      <select class="select2" multiple="multiple" data-placeholder="Sila pilih yang berkenaan" style="width: 100%;">
+                      <select class="select2" name="participantgoal" multiple="multiple" data-placeholder="Sila pilih yang berkenaan" style="width: 100%;">
                         <option>Kemahiran Berkomunikasi (KI1)</option>
                         <option>Pemikiran Kritis dan Kemahiran Menyelesaikan Masalah (KI2)</option>
                         <option>Kemahiran Kerja Berpasukan (KI3)</option>
@@ -366,15 +370,15 @@
 
                 <div class="card-body">
                     <label for="">Rumusan program/aktiviti yang akan dijalankan</label>
-                        <textarea class="summernote" id="summernote"></textarea>
+                        <textarea class="summernote" name="conclusion" id="summernote"></textarea>
                 </div>
             </div>
             <!-- /.card -->
         </div>
         <!-- /.container-fluid -->
             <div class="card-footer">
-              <button type="submit" name="btnsend" id="btnsend" class="btn btn-primary">Hantar</button>
-              <button type="submit" class="btn btn-danger">Padam</button>
+                <button type="submit" name="btnsend" id="btnsend" class="btn btn-primary">Hantar</button>
+                <!-- <button type="submit" class="btn btn-danger">Padam</button> -->
             </div>
         </section>
     <!-- /.content -->
@@ -413,25 +417,6 @@
 <script src="../../plugins/tempusdominus-bootstrap-4/js/tempusdominus-bootstrap-4.min.js"></script>
 <!-- Summernote -->
 <script src="../../plugins/summernote/summernote-bs4.min.js"></script>
-<!-- Alert -->
-<script>
-  function papplication(student_id) {
-    Swal.fire({
-      title: 'Do you want to save the changes?',
-      showDenyButton: true,
-      showCancelButton: true,
-      confirmButtonText: 'Save',
-      denyButtonText: `Don't save`,
-    }).then((result) => {
-      /* Read more about isConfirmed, isDenied below */
-      if (result.isConfirmed) {
-        Swal.fire('Saved!', '', 'success')
-      } else if (result.isDenied) {
-        Swal.fire('Changes are not saved', '', 'info')
-      }
-    })
-  }
-</script>
 <!-- Page specific script -->
 
 <script>

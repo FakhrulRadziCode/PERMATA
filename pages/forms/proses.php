@@ -1,25 +1,7 @@
 <?php
   include('../../include/header.php');
+  include('../../connection.php')
 ?>
-
-<body class="hold-transition sidebar-mini">
-<div class="wrapper">
-  <!-- Navbar -->
-  <nav class="main-header navbar navbar-expand navbar-white navbar-light">
-    <!-- Left navbar links -->
-    <ul class="navbar-nav">
-      <li class="nav-item">
-        <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
-      </li>
-      <li class="nav-item d-none d-sm-inline-block">
-        <a href="../../dashboard.php" class="nav-link">Home</a>
-      </li>
-      <li class="nav-item d-none d-sm-inline-block">
-        <a href="#" class="nav-link">Hubungi</a>
-      </li>
-    </ul>
-  </nav>
-  <!-- /.navbar -->
 
   <!-- Main Sidebar Container -->
   <aside class="main-sidebar sidebar-dark-primary elevation-4">
@@ -64,13 +46,13 @@
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="general.php" class="nav-link active">
+                <a href="general.php" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Permohonan Baru</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="proses.php" class="nav-link">
+                <a href="proses.php" class="nav-link active">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Permohonan Diproses</p>
                 </a>
@@ -123,8 +105,7 @@
           </div>
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
-              <li class="breadcrumb-item"><a href="#">Home</a></li>
-              <li class="breadcrumb-item active">Keterangan Aktiviti</li>
+              <li class="breadcrumb-item active">Permohonan Diproses</li>
             </ol>
           </div>
         </div>
@@ -135,18 +116,75 @@
     <section class="content">
       <div class="container-fluid">
         <div class="row">
-          <div class="col-sm-12">
-            <div class="card card-primary">
+          <div class="col-12">
+            <div class="card">
               <div class="card-header">
-                <h3 class="card-title">Senarai Permohonan Diproses</h3>
+                <h3 class="card-title">Senarai Permohonan Aktiviti Pelajar</h3>
               </div>
+              <!-- /.card-header -->
               <div class="card-body">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo amet sit recusandae dignissimos ratione vero magnam eaque tempore enim quasi.
+                <table id="example1" class="table table-bordered table-striped">
+                  <thead>
+                  <tr>
+                    <th>Bil.</th>
+                    <th>Nama Aktiviti</th>
+                    <th>Penganjur</th>
+                    <th>Pengajur Bersama</th>
+                    <th>Tarikh Aktiviti</th>
+                    <th>Peringkat</th>
+                    <th>Pengarah Program</th>
+                    <th>Penasihat Kelab</th>
+                    <th>Status</th>
+                  </tr>
+                  </thead>
+                  <tbody>
+                  <?php
+                    include("../../connection.php");
+                    $sql = "SELECT a.activity_name, o.organization_name, a.coorganizer, a.activity_date, l.level_name, a.studentno, s.studentname, a.club_advisor_name, a.application_status
+                    from activity a 
+                    join students s on s.studentno = a.studentno
+                    join levels l on l.level_id = a.level_id
+                    join organization o on o.organization_id = a.organization_id
+                    where a.application_status = 'processing';";
+                    $qry = mysqli_query($conn, $sql);
+                    $row = mysqli_num_rows($qry);
+
+                    if($row > 0)
+                    {
+                        $counter = 1;
+                        while($d = mysqli_fetch_assoc($qry))
+                        {
+                    ?>
+                <tr>
+                    <td><?php echo $counter; ?></td>
+                    <td><?php echo $d['activity_name']; ?></td>
+                    <td><?php echo $d['organization_name']; ?></td>
+                    <td><?php echo $d['coorganizer']; ?></td>
+                    <td><?php echo $d['activity_date']; ?></td>
+                    <td><?php echo $d['level_name']; ?></td>
+                    <td><?php echo $d['studentname']; ?></td>
+                    <td><?php echo $d['club_advisor_name']; ?></td>
+                    <td><?php echo $d['application_status']; ?></td>
+                </tr>
+                <?php
+                            $counter++;
+                        } // close while() @ line #
+                    } // close if($row > 0) @ line 
+                ?>
+                  </tbody>
+                </table>
               </div>
+              <!-- /.card-body -->
             </div>
+            <!-- /.card -->
+
+            <!-- /.card -->
           </div>
+          <!-- /.col -->
         </div>
+        <!-- /.row -->
       </div>
+      <!-- /.container-fluid -->
     </section>
     <!-- /.content -->
   </div>
@@ -185,6 +223,19 @@
 <script src="../../plugins/tempusdominus-bootstrap-4/js/tempusdominus-bootstrap-4.min.js"></script>
 <!-- Summernote -->
 <script src="../../plugins/summernote/summernote-bs4.min.js"></script>
+<!-- DataTables  & Plugins -->
+<script src="../../plugins/datatables/jquery.dataTables.min.js"></script>
+<script src="../../plugins/datatables-bs4/js/dataTables.bootstrap4.min.js"></script>
+<script src="../../plugins/datatables-responsive/js/dataTables.responsive.min.js"></script>
+<script src="../../plugins/datatables-responsive/js/responsive.bootstrap4.min.js"></script>
+<script src="../../plugins/datatables-buttons/js/dataTables.buttons.min.js"></script>
+<script src="../../plugins/datatables-buttons/js/buttons.bootstrap4.min.js"></script>
+<script src="../../plugins/jszip/jszip.min.js"></script>
+<script src="../../plugins/pdfmake/pdfmake.min.js"></script>
+<script src="../../plugins/pdfmake/vfs_fonts.js"></script>
+<script src="../../plugins/datatables-buttons/js/buttons.html5.min.js"></script>
+<script src="../../plugins/datatables-buttons/js/buttons.print.min.js"></script>
+<script src="../../plugins/datatables-buttons/js/buttons.colVis.min.js"></script>
 <!-- Page specific script -->
 
 <script>
@@ -211,6 +262,24 @@
   
 });
 
+</script>
+<!-- Page specific script -->
+<script>
+  $(function () {
+    $("#example1").DataTable({
+      "responsive": true, "lengthChange": false, "autoWidth": false,
+      "buttons": ["copy", "csv", "excel", "pdf", "print", "colvis"]
+    }).buttons().container().appendTo('#example1_wrapper .col-md-6:eq(0)');
+    $('#example2').DataTable({
+      "paging": false,
+      "lengthChange": false,
+      "searching": false,
+      "ordering": true,
+      "info": true,
+      "autoWidth": false,
+      "responsive": true,
+    });
+  });
 </script>
 </body>
 </html>
